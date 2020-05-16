@@ -22,7 +22,7 @@ export async function getPostData(id) {
   return {
     id,
     contentHtml,
-    ...matterResult.data
+    ...(matterResult.data as { date: string; title: string })
   };
 }
 
@@ -43,7 +43,7 @@ export function getSortedPostsData() {
     //データをidと合わせる
     return {
       id,
-      ...matterResult.data
+      ...(matterResult.data as { date: string; title: string })
     };
   });
   //投稿を日付をソートする
